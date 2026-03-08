@@ -18,7 +18,7 @@ LOCAL_FOLDER="$1"
 ALBUM_NAME="$2"
 
 aws s3 sync "$LOCAL_FOLDER" "s3://portfolio-images/${ALBUM_NAME}/" \
-  --endpoint-url https://<ACCOUNT_ID>.r2.cloudflarestorage.com \
+  --endpoint-url https://f9d3f7f75d0c7fe40dd82e84a37de170.r2.cloudflarestorage.com \
   --profile r2
 
 echo "Done. Remember to update gallery.yaml with the new image filenames."
