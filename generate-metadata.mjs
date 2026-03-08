@@ -60,7 +60,7 @@ async function resizeToBase64(imagePath) {
 	return buffer.toString('base64');
 }
 
-async function generateMetadata(imagePath, albumName) {
+async function generateMetadata(imagePath) {
 	const base64 = await resizeToBase64(imagePath);
 	const filename = path.basename(imagePath);
 
@@ -160,7 +160,7 @@ for (const [i, filename] of toProcess.entries()) {
 	const fileKey = `${albumName}/${filename}`;
 	process.stdout.write(`  [${i + 1}/${toProcess.length}] ${filename} … `);
 
-	const { title, description } = await generateMetadata(imagePath, albumName);
+	const { title, description } = await generateMetadata(imagePath);
 	console.log(`"${title}"`);
 
 	const collections = isFeatured ? ['featured', albumName] : [albumName];

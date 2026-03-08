@@ -11,6 +11,15 @@ export default [
 		ignores: ['dist/**', '.astro/**', 'node_modules/**', '.cache/**'],
 	},
 	{
+		files: ['**/*.mjs'],
+		languageOptions: {
+			globals: {
+				...globals.node,
+			},
+			sourceType: 'module',
+		},
+	},
+	{
 		files: ['**/*.ts'],
 		languageOptions: {
 			parser: tsParser,
