@@ -8,6 +8,7 @@ import * as yaml from 'js-yaml';
  * @property {Collection[]} collections - Array of collections
  */
 export interface GalleryData {
+	baseUrl?: string;
 	collections: Collection[];
 	images: GalleryImage[];
 }
@@ -30,7 +31,8 @@ export interface Collection {
  * @property {string[]} collections - Array of collection IDs the image belongs to
  */
 export interface GalleryImage {
-	path: string;
+	path?: string;
+	file?: string;
 	meta: Meta;
 	exif?: ImageExif;
 }
@@ -76,7 +78,7 @@ export interface ImageExif {
  * @property {string[]} collections - Array of collection IDs the image belongs to
  */
 export interface Image {
-	src: ImageMetadata;
+	src: ImageMetadata | string;
 	title: string;
 	description: string;
 	collections: string[];

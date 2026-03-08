@@ -1,5 +1,5 @@
 import type { AstroInstance } from 'astro';
-import { Github, Instagram } from 'lucide-astro';
+import { Instagram } from 'lucide-astro';
 
 export interface SocialLink {
 	name: string;
@@ -8,19 +8,14 @@ export interface SocialLink {
 }
 
 export default {
-	title: 'SR',
+	title: 'MGB',
 	favicon: 'favicon.ico',
-	owner: 'Sara Richard',
+	owner: 'Miles Berry',
 	profileImage: 'profile.webp',
 	socialLinks: [
 		{
-			name: 'GitHub',
-			url: 'https://github.com/rockem/astro-photography-portfolio',
-			icon: Github,
-		} as SocialLink,
-		{
 			name: 'Instagram',
-			url: 'https://www.instagram.com',
+			url: 'https://www.instagram.com/mgberry',
 			icon: Instagram,
 		} as SocialLink,
 	],

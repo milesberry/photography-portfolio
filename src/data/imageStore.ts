@@ -56,10 +56,11 @@ interface GetImagesOptions {
 export const getImages = async (options: GetImagesOptions = {}): Promise<Image[]> => {
 	const { galleryPath = defaultGalleryPath, collection } = options;
 	try {
-		let images = (await loadGalleryData(galleryPath)).images;
+		const galleryData = await loadGalleryData(galleryPath);
+		let images = galleryData.images;
 		images = filterImagesByCollection(collection, images);
 		images = sortImages(images, options);
-		return processImages(images, galleryPath);
+		return processImages(images, galleryPath, galleryData.baseUrl);
 	} catch (error) {
 		throw new ImageStoreError(
 			`Failed to load images from ${galleryPath}: ${getErrorMsgFrom(error)}`,
@@ -124,15 +125,27 @@ function sortImages(images: GalleryImage[], options: GetImagesOptions) {
 }
 
 /**
- * Processes gallery images and returns an array of Image objects
- * @param {GalleryImage[]} images - Array of images to process
- * @param {string} galleryPath - Path to the collections directory
- * @returns {Image[]} Array of processed images with metadata
- * @throws {ImageStoreError} If an image module cannot be found
+ * Processes gallery images and returns an array of Image objects.
+ * When baseUrl is provided, constructs remote URLs from baseUrl + file.
+ * Falls back to local file resolution via import.meta.glob when baseUrl is absent.
  */
-const processImages = (images: GalleryImage[], galleryPath: string): Image[] => {
+const processImages = (images: GalleryImage[], galleryPath: string, baseUrl?: string): Image[] => {
+	if (baseUrl) {
+		const base = baseUrl.replace(/\/$/, '');
+		return images.reduce<Image[]>((acc, imageEntry) => {
+			if (imageEntry.file) {
+				acc.push({
+					src: `${base}/${imageEntry.file}`,
+					title: imageEntry.meta.title,
+					description: imageEntry.meta.description,
+					collections: imageEntry.meta.collections,
+				});
+			}
+			return acc;
+		}, []);
+	}
 	return images.reduce<Image[]>((acc, imageEntry) => {
-		const imagePath = path.posix.join('/', path.parse(galleryPath).dir, imageEntry.path);
+		const imagePath = path.posix.join('/', path.parse(galleryPath).dir, imageEntry.path ?? '');
 		try {
 			acc.push(createImageDataFor(imagePath, imageEntry));
 		} catch (error) {
