@@ -2,7 +2,7 @@
 import siteConfig from '../../site.config.mjs';
 
 const owner = siteConfig.owner;
-const base = import.meta.env.BASE_URL;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <div class="absolute left-0 right-0 z-0">

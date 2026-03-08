@@ -94,7 +94,10 @@ Rules:
 	});
 
 	try {
-		return JSON.parse(message.content[0].text.trim());
+		const raw = message.content[0].text.trim();
+		// Strip markdown code fences if present (```json ... ``` or ``` ... ```)
+		const cleaned = raw.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '');
+		return JSON.parse(cleaned);
 	} catch {
 		console.warn(`  ⚠ Could not parse response for ${filename}, using fallback.`);
 		return { title: path.parse(filename).name, description: '' };
