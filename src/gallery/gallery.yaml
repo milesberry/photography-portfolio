@@ -1,22 +1,222 @@
 baseUrl: https://images.milesberry.photos
-
 collections:
-  - id: jazz
-    name: Jazz
-
+  - id: nice-2026
+    name: Nice 2026
 images:
-  - file: jazz/placeholder-001.jpg
+  - file: nice-2026/20260108-144418.jpg
     meta:
-      title: Jazz placeholder 1
-      description: Placeholder image — replace with real upload.
+      title: Golden Hour Coastal Embrace
+      description: >-
+        The setting sun casts a luminous path across calm waters, illuminating a Mediterranean coastline where terraced
+        hills meet a tranquil bay dotted with distant islands.
       collections:
-        - featured
-        - jazz
+        - nice-2026
     exif: {}
-  - file: jazz/placeholder-002.jpg
+  - file: nice-2026/20260108-164026.jpg
     meta:
-      title: Jazz placeholder 2
-      description: Placeholder image — replace with real upload.
+      title: Twilight at Monaco Harbor
+      description: >-
+        Moored sailboats and yachts rest peacefully in the Mediterranean waters as the Belle Époque architecture of
+        Monaco's waterfront glows warmly against the deepening blue evening sky.
       collections:
-        - jazz
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260109-065536.jpg
+    meta:
+      title: Monaco's Golden Hour
+      description: >-
+        The iconic Casino of Monte Carlo glows warmly against a dramatic sunset sky, framed by lush Mediterranean palms
+        and a striking red-and-white circus tent in the foreground.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260110-072708.jpg
+    meta:
+      title: Golden Hour at the Shore
+      description: >-
+        A serene beach scene captures the sun's warm glow reflecting across calm waters at sunset, with rocky outcrops
+        framing the sandy beach and distant headlands silhouetted against the golden sky.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260110-132227.jpg
+    meta:
+      title: Mediterranean Coastal Paradise
+      description: >-
+        A pristine Mediterranean beach framed by swaying palms and modern high-rise architecture, where turquoise waters
+        meet golden sand under brilliant sunshine.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260110-140512.jpg
+    meta:
+      title: Waterfront Solitude
+      description: >-
+        A modernist concrete structure frames a serene harbor view, where clear blue waters meet geometric architecture
+        and distant vessels rest at anchor.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260110-141704.jpg
+    meta:
+      title: Urban Oasis Reflection
+      description: >-
+        A serene traditional pavilion and bridge span a glassy pond in a verdant garden setting, framed by modern
+        high-rise buildings nestled against dramatic rocky mountains under clear skies.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-073348.jpg
+    meta:
+      title: Golden Hour Over Marina
+      description: >-
+        A Mediterranean harbor town glows in warm sunset light as the sun reflects across calm waters, with historic
+        architecture nestled between dramatic cliffs and a construction crane silhouetted against the golden sky.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-080113.jpg
+    meta:
+      title: Mediterranean Coastal Gem
+      description: >-
+        A picturesque Mediterranean seaside town cascades down verdant hillsides toward a pristine turquoise bay, its
+        colorful waterfront buildings reflected in the calm azure waters under clear skies.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-081052.jpg
+    meta:
+      title: Iron and Glass Elegance
+      description: >-
+        A historic railway station's ornate cast-iron architecture frames the platform, where natural light floods
+        through the geometric glass roof, casting geometric shadows across the waiting area below.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-083750.jpg
+    meta:
+      title: Church Tower Through Old Streets
+      description: >-
+        A luminous bell tower with a golden façade rises between weathered ochre buildings in a narrow European
+        alleyway, framed by vintage street lamps and tangled electrical wires.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-083853.jpg
+    meta:
+      title: Sacred Geometry in Stone
+      description: >-
+        The soaring nave of a neoclassical cathedral showcases ornate architectural details, from the elaborately
+        coffered dome and gilded capitals to the symmetrical columns and distant altar, all unified by the warm
+        illumination of natural light filtering through stained glass.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-101956.jpg
+    meta:
+      title: Framed Through Time
+      description: >-
+        Ancient stone archways frame a serene view of cypress trees and weathered ruins bathed in Mediterranean
+        sunlight, creating a layered composition that draws the eye through centuries of architectural history.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-112251.jpg
+    meta:
+      title: Sacred Light Through Glass
+      description: >-
+        A modern auditorium features vibrant blue stained glass windows depicting abstract religious imagery,
+        illuminating the space above a grand piano on an empty stage.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-113226.jpg
+    meta:
+      title: Reflection of Dreams
+      description: >-
+        A vibrant mural featuring colorful floral motifs and sketched figures adorns a modernist stone wall, mirrored
+        perfectly in the still water below.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-115455.jpg
+    meta:
+      title: Tramway Through the Square
+      description: >-
+        A modern tram line cuts through a sun-drenched European plaza flanked by elegant Belle Époque buildings, with
+        sculptural monuments standing sentinel along the symmetrical passage.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-115737.jpg
+    meta:
+      title: Reflecting Mediterranean Light
+      description: >-
+        A serene waterfront promenade lined with golden-leafed trees frames a mirror-still pool, with palm trees and
+        distant hillside architecture creating layers of depth beneath a cloudless blue sky.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-115848.jpg
+    meta:
+      title: Mediterranean Fountain Cascade
+      description: >-
+        Water fountains erupt in dynamic arcs around classical statuary in a sunlit European plaza, their turquoise
+        basins and white spray creating a striking contrast against the warm ochre facades of Belle Époque architecture.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-120916.jpg
+    meta:
+      title: Mediterranean Shores
+      description: >-
+        Turquoise waves lap against a dark pebble beach beneath a brilliant blue sky, with pastel-colored buildings
+        nestled on the verdant hillside beyond.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-125041.jpg
+    meta:
+      title: Narrow Street in Old Town
+      description: >-
+        A sunlit European alleyway lined with colorful historic buildings in warm ochre, terracotta, and pink hues,
+        revealing the architectural character of a Mediterranean old town.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-160907.jpg
+    meta:
+      title: Golden Hour Serenity
+      description: >-
+        A stunning coastal sunrise bathes the rocky shoreline in golden light as waves adorned with sea foam roll gently
+        onto the pebbled beach beneath a luminous sky.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260111-165519.jpg
+    meta:
+      title: Twilight in the Amalfi Coast
+      description: >-
+        A charming narrow street in a historic Italian village glows with warm golden light and festive star
+        decorations, framing a baroque church dome and misty mountain backdrop at dusk.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260112-062642.jpg
+    meta:
+      title: Courtyard in Blue Hour
+      description: >-
+        A serene Mediterranean courtyard lined with olive trees glows softly in evening light, its classical
+        architecture framing a peaceful urban plaza as twilight deepens the sky.
+      collections:
+        - nice-2026
+    exif: {}
+  - file: nice-2026/20260112-091005.jpg
+    meta:
+      title: Mediterranean Approach
+      description: >-
+        An aerial view from an aircraft descending toward a sun-drenched Mediterranean coastline, revealing a crescent
+        bay nestled between snow-capped mountains and sprawling coastal towns.
+      collections:
+        - nice-2026
     exif: {}
