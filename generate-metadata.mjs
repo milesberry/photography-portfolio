@@ -35,7 +35,9 @@ const args = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 const flags = new Set(process.argv.slice(2).filter((a) => a.startsWith('--')));
 
 if (args.length < 2) {
-	console.error('Usage: node generate-metadata.mjs <local-folder> <album-name> [--featured] [--dry-run]');
+	console.error(
+		'Usage: node generate-metadata.mjs <local-folder> <album-name> [--featured] [--dry-run]',
+	);
 	process.exit(1);
 }
 
