@@ -11,6 +11,7 @@ images:
         hills meet a tranquil bay dotted with distant islands.
       collections:
         - nice-2026
+        - featured
     exif: {}
   - file: nice-2026/20260108-164026.jpg
     meta:
@@ -83,6 +84,7 @@ images:
         colorful waterfront buildings reflected in the calm azure waters under clear skies.
       collections:
         - nice-2026
+        - featured
     exif: {}
   - file: nice-2026/20260111-081052.jpg
     meta:
@@ -111,6 +113,7 @@ images:
         illumination of natural light filtering through stained glass.
       collections:
         - nice-2026
+        - featured
     exif: {}
   - file: nice-2026/20260111-101956.jpg
     meta:
@@ -165,6 +168,7 @@ images:
         basins and white spray creating a striking contrast against the warm ochre facades of Belle Époque architecture.
       collections:
         - nice-2026
+        - featured
     exif: {}
   - file: nice-2026/20260111-120916.jpg
     meta:
@@ -183,6 +187,7 @@ images:
         revealing the architectural character of a Mediterranean old town.
       collections:
         - nice-2026
+        - featured
     exif: {}
   - file: nice-2026/20260111-160907.jpg
     meta:
@@ -192,6 +197,7 @@ images:
         onto the pebbled beach beneath a luminous sky.
       collections:
         - nice-2026
+        - featured
     exif: {}
   - file: nice-2026/20260111-165519.jpg
     meta:
