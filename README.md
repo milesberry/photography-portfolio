@@ -1,126 +1,98 @@
-# 📸 Astro Photography Portfolio Template
+# 📸 MGB Photography Portfolio
 
-[![Build & Test](https://github.com/rockem/astro-photography-portfolio/actions/workflows/test.yml/badge.svg)](https://github.com/rockem/astro-photography-portfolio/actions/workflows/test.yml)
+[![Deploy to Cloudflare Pages](https://github.com/milesberry/photography-portfolio/actions/workflows/cloudflare-deploy.yml/badge.svg)](https://github.com/milesberry/photography-portfolio/actions/workflows/cloudflare-deploy.yml)
+[![Quality checks](https://github.com/milesberry/photography-portfolio/actions/workflows/quality.yml/badge.svg)](https://github.com/milesberry/photography-portfolio/actions/workflows/quality.yml)
 
-A modern, fast, and highly customizable photography portfolio template built with [Astro](https://astro.build).
-Ideal for photographers who want to showcase their work through a sleek, performant, and professional website.
+Miles Berry's photography portfolio — curated albums of up to 24 photos per trip, built with [Astro](https://astro.build) and deployed to Cloudflare Pages, with images served from Cloudflare R2.
 
-👉 [View the demo](https://rockem.github.io/astro-photography-portfolio/)
+👉 [milesberry.photos](https://milesberry.photos)
 
-## ✨ Features
+## Architecture
 
-- Lightning-fast performance with Astro
-- Fully responsive design
-- Optimized image loading and handling
-- Easy to customize
-- Easy to organized gallery via a yaml file
-- Multiple albums support
-- Image zoom capabilities
-- Automatic deployment to GitHub pages
-- Script to automatically create a gallery from images
+- **Framework**: Astro (static site generation)
+- **Hosting**: Cloudflare Pages, deployed automatically on push to `main`
+- **Image storage**: Cloudflare R2 (`images.milesberry.photos`), served via custom subdomain
+- **Metadata**: AI-generated titles and descriptions via Claude Haiku vision API (`generate-metadata.mjs`)
+- **Styling**: TailwindCSS + GLightbox lightbox
 
-## 🚀 Getting Started
+Images are not stored in the repository. They live in R2 and are referenced by URL in `src/gallery/gallery.yaml`.
 
-### Prerequisites
+## Working with photos
 
-- Check [AstroJS](https://docs.astro.build/en/install-and-setup/) documentation for prerequisites
-- Basic knowledge of Astro and web development
-
-### Installation
-
-1. click "Use this template" on GitHub
-2. Clone your newly created template
-3. Install dependencies:
+### Uploading a new album to R2
 
 ```bash
-npm install
-# or
-yarn install
+./upload-photos.sh <local-folder> <album-name>
+# e.g. ./upload-photos.sh ~/Pictures/paris-2026 paris-2026
 ```
 
-3. Start the development server:
+Requires the `r2` AWS CLI profile to be configured with your Cloudflare R2 credentials and the EU endpoint:
+
+```
+endpoint_url = https://<account-id>.eu.r2.cloudflarestorage.com
+```
+
+### Generating metadata
 
 ```bash
-npm run dev
-# or
-yarn dev
+node generate-metadata.mjs <album-name>
+# e.g. node generate-metadata.mjs paris-2026
 ```
 
-## 📝 Make it your own
+This sends each image to Claude Haiku and generates a title and description, then merges the results into `src/gallery/gallery.yaml`. Images already in the YAML are skipped. Requires `ANTHROPIC_API_KEY` to be set in the environment.
 
-### Configuration
+Flags:
 
-Edit the `astro.config.ts` file to update your github pages details:
+- `--featured` — also adds the album images to the `featured` collection (shown on the homepage)
+- `--dry-run` — preview output without writing to the YAML
 
-```typescript
-export default defineConfig({
-  site: '<github pages domain>',
-  base: '<repository name>',
-  // ...
-});
-```
+### Updating the gallery
 
-Edit the `site.config.mts` file to update your personal information:
+Edit `src/gallery/gallery.yaml` directly to:
 
-```typescript
-export default {
-  title: 'SR',
-  favicon: 'favicon.ico',
-  owner: 'Sara Richard',
-  // ... Other configurations
-};
-```
-
-### Customize site icon
-
-Replace `public/favicon.ico` with your icon and change the configuration
-if your file has a different name/location.
-
-### Customize the About page
-
-- Replace the profile image (see [site.config.mts](site.config.mts) for configuration)
-- Edit content in [about page](./src/pages/about.astro)
-
-### Adding Your Photos
-
-1. Place your images in the `src/gallery/<album>` directory
-2. Update the gallery details in `src/gallery/gallery.yaml`. Optionally, you can run `npm run generate` to generate a
-   gallery.yaml file from the images in the directory.
-3. Update meta-data for images in the `src/gallery/gallery.yaml` file.
-4. Images are automatically optimized during build
+- Add/remove images from the `featured` collection (homepage)
+- Edit titles and descriptions
+- Add new albums to the `collections` list
 
 ### Adding photos to the featured section
 
-"featured" is a builtin collection, and images can be added to it by specifying it in the collections parameter like any
-other collection.
+`featured` is a built-in collection. Add it to any image's `collections` list:
 
-## 🛠️ Built With
+```yaml
+collections:
+  - paris-2026
+  - featured
+```
 
-- [Astro](https://astro.build) - The web framework for content-driven websites
-- [TypeScript](https://www.typescriptlang.org/) - For type safety
-- [TailwindCSS](https://tailwindcss.com) - For styling
-- [Sharp](https://sharp.pixelplumbing.com/) - For image optimization
-- [GLightbox](https://biati-digital.github.io/glightbox/) - Responsive lightbox gallery
+### Committing and deploying
 
-## ⚙️ Provided GitHub actions
+```bash
+git add src/gallery/gallery.yaml
+git commit -m "Add Paris 2026 album"
+git push
+```
 
-- [Build & Test](./.github/workflows/test.yml) - Ensure build integrity
-- [Quality](./.github/workflows/quality.yml) - Run pre-commit checks
-- [Deploy Astro Site](./.github/workflows/deploy.yml) - Publish to GitHub pages
+GitHub Actions builds and deploys to Cloudflare Pages automatically.
 
-## 📄 License
+## Local development
 
-This project is licensed under the MIT License, see the [LICENSE](LICENSE) file for details.
+```bash
+npm install
+npm run dev
+```
 
-## 🤝 Contributing
+## Configuration
 
-Contributions are welcome! Please feel free to submit a Pull Request or an Issue.
+- `site.config.mts` — site title, owner name, profile image, social links
+- `astro.config.mts` — site URL
+- `src/content/about.md` — about page text
+- `public/images/profile.jpg` — profile photo
 
-## 💖 Support
+## GitHub Actions
 
-If you find this template useful, please consider giving it a ⭐️ on GitHub!
+- **[Deploy to Cloudflare Pages](./.github/workflows/cloudflare-deploy.yml)** — builds and deploys on push to `main`
+- **[Quality checks](./.github/workflows/quality.yml)** — runs pre-commit hooks (ESLint, Prettier, YAML validation)
 
-## 📧 Contact
+## Based on
 
-- [Instagram](https://www.instagram.com/lesegal/)
-- [GitHub](https://github.com/rockem)
+[astro-photography-portfolio](https://github.com/rockem/astro-photography-portfolio) by [@rockem](https://github.com/rockem), extended to support remote images served from Cloudflare R2.
