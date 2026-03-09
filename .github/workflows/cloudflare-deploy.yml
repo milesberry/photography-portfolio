@@ -17,10 +17,13 @@ jobs:
       - name: Deploy to Cloudflare Pages
         run: |
           for i in 1 2 3; do
-            npx wrangler@latest pages deploy dist --project-name=photography-portfolio && break
+            if npx wrangler@latest pages deploy dist --project-name=photography-portfolio; then
+              exit 0
+            fi
             echo "Attempt $i failed, retrying in 30s..."
-            sleep 30
+            [ $i -lt 3 ] && sleep 30
           done
+          exit 1
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
