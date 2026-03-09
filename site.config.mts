@@ -11,7 +11,7 @@ export default {
 	title: 'MGB',
 	favicon: 'favicon.ico',
 	owner: 'Miles Berry',
-	profileImage: 'profile.webp',
+	profileImage: 'profile.jpg',
 	socialLinks: [
 		{
 			name: 'Instagram',
